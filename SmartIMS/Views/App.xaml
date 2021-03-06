@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SmartIMS.App">
+    <Application.Resources>
+        <Color x:Key="TextColor">#000000</Color>
+        <Color x:Key="HeaderTextColor">#0000FF</Color>
+        <Color x:Key="SubTextColor">#000080</Color>
+        <Color x:Key="BackGroundColor">#44719A</Color>
+        <Color x:Key="ReadonlyColor">#909090</Color>
+
+        <Color x:Key="Primary">#136FF7</Color>
+        <Color x:Key="DisabledBackground">#E5E5EC</Color>
+        <Color x:Key="DisabledText">#80414F6A</Color>
+
+        <OnPlatform x:TypeArguments="x:Double" Android="11" iOS="11" WinPhone="18" x:Key="phonelabelfontsize" />
+        <OnPlatform x:TypeArguments="x:Double" Android="18" iOS="18" WinPhone="18" x:Key="tabletlabelfontsize" />
+
+        <Style TargetType="Label">
+            <Setter Property="LineBreakMode" Value="WordWrap" />
+            <Setter Property="FontSize">
+                <Setter.Value>
+                    <OnIdiom x:TypeArguments="x:Double" Phone="{StaticResource phonelabelfontsize}" Tablet="{StaticResource tabletlabelfontsize}"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ButtonFillStyle" TargetType="Button">
+            <Setter Property="FontFamily" Value="BoldFont" />
+            <Setter Property="CornerRadius" Value="3" />
+            <Setter Property="FontSize">
+                <Setter.Value>
+                    <OnIdiom x:TypeArguments="x:Double"
+                                 Phone="18"
+                                 Tablet="24"/>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger TargetType="Button"
+                         Property="IsEnabled" Value="True">
+                    <Setter Property="TextColor" Value="{StaticResource Primary}" />
+                    <Setter Property="BackgroundColor" Value="White" />
+                </Trigger>
+                <Trigger TargetType="Button"
+                         Property="IsEnabled" Value="False">
+                    <Setter Property="BackgroundColor" Value="{StaticResource DisabledBackground}" />
+                    <Setter Property="TextColor" Value="{StaticResource DisabledText}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="LabelHeaderStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="SemiboldFont" />
+            <Setter Property="FontSize">
+                <Setter.Value>
+                    <OnIdiom x:TypeArguments="x:Double"
+                                 Phone="24"
+                                 Tablet="36"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+            <Setter Property="Padding" Value="1" />
+        </Style>
+
+
+    </Application.Resources>
+</Application>
